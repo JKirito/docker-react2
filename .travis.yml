@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t jkirito/docker-react2 -f Dockerfile.dev .
+
+script:
+  - docker run jkirito/docker-react2 yarn run test -- --coverage
